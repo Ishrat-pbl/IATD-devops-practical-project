@@ -29,10 +29,10 @@ jobs:
         run: /docker/login-action@v3
         with:
           username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUB_PAT}}
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
 
       - name: setup dockerhub build tools
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-build-action@v3
 
       - name: setup dockerhub push tools
         uses: docker/build-push-action@v5. 
@@ -40,4 +40,4 @@ jobs:
         context: .
         file: "./Dockerfile"
         push: true
-        tags: "${{secrets.DOCKERHUB_USERNAME}}/test-repo:latest"
+        tags: "${{secrets.DOCKERHUB_USERNAME}}/iatd_repos:latest"
