@@ -29,3 +29,55 @@ test("wrapString: wrap complex sentence", () => {
 // Test for month greater than 12
 
 // Test for day <= 0
+
+//import { isValidDateString } from './utilities.js';
+
+//describe('isValidDateString()', () => {
+    test('should return true for a valid date', () => {
+        expect(isValidDateString('15/03/2024')).toBe(true);
+    });
+
+    test('should return false for an invalid day', () => {
+        expect(isValidDateString('32/01/2024')).toBe(false); // too many days
+    });
+
+    test('should return false for invalid month', () => {
+        expect(isValidDateString('10/13/2024')).toBe(false); // invalid month
+    });
+
+    test('should return true for 29/02/2024 (leap year assumed)', () => {
+        expect(isValidDateString('29/02/2024')).toBe(true);
+    });
+
+    test('should return false for day 0', () => {
+        expect(isValidDateString('00/05/2024')).toBe(false);
+    });
+
+    test('should return false for month 0', () => {
+        expect(isValidDateString('10/00/2024')).toBe(false);
+    });
+
+    test('should return false for negative year', () => {
+        expect(isValidDateString('10/10/-2024')).toBe(false);
+    });
+
+    test('should return false for invalid format (missing segments)', () => {
+        expect(isValidDateString('10/10')).toBe(false);
+    });
+
+    test('should return false for invalid format (wrong digit count)', () => {
+        expect(isValidDateString('1/1/2024')).toBe(false);
+    });
+
+    test('should return false for non-numeric values', () => {
+        expect(isValidDateString('aa/bb/cccc')).toBe(false);
+    });
+
+    test('should return false for 31/04/2024 (April has 30 days)', () => {
+        expect(isValidDateString('31/04/2024')).toBe(false);
+    });
+
+    test('should return true for 31/12/2025 (valid end of year)', () => {
+        expect(isValidDateString('31/12/2025')).toBe(true);
+    });
+//});
