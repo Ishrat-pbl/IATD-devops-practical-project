@@ -40,11 +40,12 @@ jobs:
         context: .
         file: Dockerfiles/test.Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/jahan-ishrat-intro-to-devops-a2:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/iatd_repos:test-latest
+
     - name: Build user image and push to docker hub
       uses: docker/build-push-action@v5  
       with:
         context: .
         file: Dockerfiles/user.Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/jahan-ishrat-intro-to-devops-a2:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/iatd_repos:user-latest
