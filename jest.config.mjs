@@ -195,9 +195,10 @@ const config = {
   // Whether to use watchman for file crawling
   // watchman: true,
 };
+/*
 export default {
  testEnvironment: 'node',
  transform: {}, // required for ESM support
 }
- 
-//export default config;
+ */
+export default config;
