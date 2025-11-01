@@ -32,7 +32,7 @@ test("wrapString: wrap complex sentence", () => {
 
 //import { isValidDateString } from './utilities.js';
 
-//describe('isValidDateString()', () => {
+describe('isValidDateString()', () => {
     test('should return true for a valid date', () => {
         expect(isValidDateString('15/03/2024')).toBe(true);
     });
@@ -80,4 +80,4 @@ test("wrapString: wrap complex sentence", () => {
     test('should return true for 31/12/2025 (valid end of year)', () => {
         expect(isValidDateString('31/12/2025')).toBe(true);
     });
-//});
+});
